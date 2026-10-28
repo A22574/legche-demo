@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow" data-publish>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Легче · подбор активных колясок</title>
+<meta name="description" content="Легче: подбор активных колясок под ИПРА, бюджет и среду. Помощь с сертификатом СФР и фондами, доставка по всей РФ.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Легче">
+<meta property="og:title" content="Легче · подбор активных колясок">
+<meta property="og:description" content="Подберём активную коляску под бюджет, диагноз и среду. Помощь с ИПРА и фондами.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="assets/hero-m.webp" media="(max-width: 860px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 861px)" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%274%27 y=%274%27 width=%2724%27 height=%2724%27 rx=%2710%27 fill=%27%231f7f74%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%275%27 fill=%27%23f6f8f7%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vibe.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Легче","description":"Подбор активных колясок: замеры, ИПРА, сертификат СФР, доставка по РФ.","url":"{{ссылка-сайта}}","telephone":"{{телефон}}"}
+</script>
+<style>
+  /* ---- тема: шесть цветов, два шрифта. Палитра А «белый + мягкий бирюзовый» ---- */
+  .v-page {
+    --v-canvas: #f6f8f7; --v-surface: #ffffff;
+    --v-ink: #1c2628; --v-ink-soft: #546367;            /* 5,9:1 на холсте */
+    --v-accent: #1f7f74; --v-accent-ink: #f3fbf9;       /* кнопка 4,6:1 */
+    --v-accent-deep: #176a61;                           /* мелкий акцентный текст: цены, номера вопросов, 6,0:1 */
+    --v-font-display: "Rubik", "Arial Rounded MT Bold", system-ui, sans-serif;
+    --v-font-text: "Manrope", "Segoe UI", system-ui, sans-serif;
+    --v-display-weight: 500;
+    --v-track-tight: -0.02em;
+    --v-shadow-color: 32 62 58;
+    --v-e1: 0 1px 2px rgb(var(--v-shadow-color) / .06), 0 8px 22px rgb(var(--v-shadow-color) / .08);
+    --v-e2: 0 2px 6px rgb(var(--v-shadow-color) / .08), 0 22px 54px rgb(var(--v-shadow-color) / .14);
+    --v-radius: 16px;
+    /* мелкие кегли не ниже 13 и 15 px */
+    --v-t-xs: clamp(0.8125rem, 0.79rem + 0.15vw, 0.85rem);
+    --v-t-sm: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+    --v-section: clamp(3.5rem, 8vw, 7rem);
+  }
+  html, body { margin: 0; background: #f6f8f7; }
+  .v-page .v-lede { font-weight: 400; }
+  .v-page .v-label { font-weight: 600; }
+  .v-page .v-btn { font-size: var(--v-t-sm); }
+  .nowrap { white-space: nowrap; }
+  .v-page { overflow-x: clip; }
+  .v-page section { overflow-x: clip; }
+  .foot { margin-left: 0; margin-right: 0; }
+  .q { color: var(--v-accent-deep); }   /* номер вопроса в лейбле */
+
+  /* ---- шапка: марка, пять вопросов, телефон, одна кнопка ------------------------- */
+  .bar { position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: var(--v-4);
+    padding: var(--v-3) var(--v-gutter);
+    background: rgb(246 248 247 / 0); transition: background-color .3s var(--v-ease-out), box-shadow .3s var(--v-ease-out); }
+  .bar.is-scrolled { background: rgb(246 248 247 / .86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--v-hair); }
+  .bar__mark { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: .5em; min-height: 44px; white-space: nowrap; }
+  .bar__mark i { width: .8em; height: .8em; border-radius: .3em; background: var(--v-accent); display: inline-block; position: relative; flex: none; }
+  .bar__mark i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; margin: -17% 0 0 -17%; border-radius: 50%; background: var(--v-canvas); }
+  .qnav { display: flex; gap: var(--v-5); font-size: var(--v-t-sm); }
+  .qnav a { text-decoration: none; color: var(--v-ink-soft); display: inline-flex; align-items: center; gap: .4em; min-height: 44px; transition: color .16s var(--v-ease-out); }
+  .qnav a b { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xs); color: var(--v-accent-deep); font-variant-numeric: tabular-nums; }
+  @media (hover: hover) and (pointer: fine) { .qnav a:hover { color: var(--v-ink); } }
+  .bar__right { display: flex; align-items: center; gap: var(--v-4); }
+  .bar__tel { text-decoration: none; font-weight: 600; font-size: var(--v-t-sm); color: var(--v-ink); display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--v-2); white-space: nowrap; }
+  .bar .v-btn { padding: .7em 1.3em; }
+  @media (max-width: 1100px) { .qnav { display: none; } .v-page .hero__pluses { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) {
+    .bar__tel { display: none; }
+    .bar__mark { font-size: 1.1rem; }
+    .bar .v-btn { padding: 0 1em; min-height: 44px; }
+    .bar__right { gap: var(--v-2); }
+  }
+
+  /* ---- 1 · hero: кресло в светлом кабинете, колонка с нотками, текст слева на стене ---- */
+  .hero__back img { position: absolute; max-width: none; width: 112%; height: 112%; left: -6%; top: -6%; object-fit: cover; object-position: 62% 50%; }
+  /* страховка под текст: лёгкая колонка света слева, не затемнение */
+  .hero__col { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to right, rgb(246 248 247 / .72) 0%, rgb(246 248 247 / .45) 34%, transparent 62%); }
+  .hero__copy { bottom: clamp(3.5rem, 10vh, 7rem); max-width: min(44rem, 88vw); }
+  .hero__label { display: block; margin-bottom: var(--v-4); }
+  .hero__copy .v-display { font-size: clamp(2.3rem, 1.3rem + 3.3vw, 4.3rem); line-height: 1.02; max-width: 19ch; }
+  .hero__copy .v-lede { margin-top: var(--v-5); max-width: 40ch; color: var(--v-ink); }
+  /* преимущества на первом экране: две колонки коротких строк, без карточек */
+  .v-page .hero__pluses { margin-top: 1.75rem; display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: var(--v-2) var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink); }
+  .hero__pluses li { display: flex; gap: .55em; align-items: baseline; }
+  .hero__pluses li::before { content: ""; flex: none; width: .55em; height: .55em; border-radius: 50%; background: var(--v-accent); transform: translateY(-.1em); }
+  .hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-4) var(--v-6); margin-top: var(--v-6); }
+  /* нотки из колонки: контейнер ставится JS-ом на колонку в кадре (data-spk на картинке), едет вместе со слоем параллакса */
+  .notes { position: absolute; z-index: 2; width: 0; height: 0; pointer-events: none; }
+  .notes span { position: absolute; left: 0; bottom: 0; font-family: var(--v-font-display); font-weight: 500; font-size: var(--s, 1.9rem); line-height: 1; color: var(--v-accent-deep); opacity: 0; transform: translate(-50%, 0);
+    text-shadow: 0 1px 0 rgb(255 255 255 / .7), 0 0 12px rgb(255 255 255 / .8);
+    animation: note-rise var(--dur, 3.8s) ease-out var(--delay, 0s) infinite; }
+  @keyframes note-rise {
+    0%   { opacity: 0; transform: translate(-50%, 0) scale(.6) rotate(0deg); }
+    12%  { opacity: .95; }
+    70%  { opacity: .55; }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), var(--dy, -120px)) scale(1.05) rotate(var(--rot, 0deg)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .notes span { animation: none; opacity: .75; transform: translate(calc(-50% + var(--dx, 0px)), calc(var(--dy, -120px) * .45)) rotate(var(--rot, 0deg)); }
+    .notes span:nth-child(n + 3) { display: none; }
+  }
+  .hero__tel { text-decoration: none; color: var(--v-ink); font-size: var(--v-t-sm); display: inline-flex; align-items: center; min-height: 44px; gap: .35em; }
+  .hero__tel b { font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  .hero__note { position: absolute; z-index: 3; right: var(--v-gutter); top: clamp(5rem, 14vh, 9rem); text-align: right; display: grid; gap: .25em; max-width: 22ch; }
+  .hero__note .v-nums { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); }
+  .hero__note span:last-child { font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  /* вторая реплика: пять вопросов до кресла */
+  .hero__five { bottom: clamp(4.5rem, 14vh, 9rem); max-width: min(40rem, 88vw); }
+  .hero__five .v-display { font-size: var(--v-t-2xl); line-height: 1.04; max-width: 16ch; }
+  .hero__five .v-lede { margin-top: var(--v-4); max-width: 34ch; }
+  .hero__five ol { display: flex; flex-wrap: wrap; gap: .5em .9em; margin-top: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .hero__five ol li { display: inline-flex; align-items: baseline; gap: .35em; }
+  .hero__five ol b { font-family: var(--v-font-display); font-weight: 500; color: var(--v-accent-deep); font-size: var(--v-t-xs); }
+  @media (max-width: 860px) {
+    .hero__back img { object-position: 50% 78%; }
+    .hero__col { background: linear-gradient(to bottom, rgb(246 248 247 / .55) 0%, rgb(246 248 247 / .25) 45%, transparent 70%); }
+    .hero__copy, .hero__five { bottom: auto; top: clamp(5rem, 10vh, 6.5rem); }
+    .hero__copy .v-display { font-size: clamp(1.9rem, 1.2rem + 3.4vw, 2.6rem); max-width: none; }
+    .hero__copy .v-lede { font-size: var(--v-t-base); margin-top: var(--v-3); max-width: 32ch; }
+    .v-page .hero__pluses { grid-template-columns: 1fr; gap: var(--v-1); margin-top: 1.25rem; }
+    .hero__label { margin-bottom: var(--v-3); }
+    .hero__cta { margin-top: var(--v-4); gap: var(--v-2) var(--v-5); }
+    .notes span { --s: 1.3rem; }
+    .hero__note { display: none; }
+    .hero__five .v-display { font-size: var(--v-t-xl); }
+  }
+
+  /* ---- 2 · вопрос 1 «Будет больно?»: фото слева, доводы справа ----------------------- */
+  /* услуги клиники: «меню» крупной типографикой, строка = услуга + УТП + цена от */
+  .usl__head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: var(--v-8); align-items: end; margin-bottom: var(--v-6); }
+  .usl__head .v-label { grid-column: 1 / -1; }
+  .usl__head .v-display { font-size: clamp(2rem, 1.2rem + 2.2vw, 3.1rem); }
+  .usl__head .v-label { display: block; margin-bottom: var(--v-3); color: var(--v-accent-deep); }
+  .usl__head p { margin-top: 0; color: var(--v-ink-soft); max-width: 60ch; font-size: var(--v-t-md, 1.125rem); text-wrap: pretty; }
+  .usl__list { list-style: none; margin: 0; padding: 0; counter-reset: usl; border-bottom: 1px solid var(--v-hair); display: grid; grid-template-columns: 3.2rem minmax(0, 1.05fr) minmax(0, 1.35fr) auto; column-gap: var(--v-6); }
+  .usl__list li { counter-increment: usl; position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline;
+    padding: var(--v-5) var(--v-4); margin: 0 calc(-1 * var(--v-4)); border-top: 1px solid var(--v-hair); transition: background-color .35s ease, box-shadow .35s ease; }
+  .usl__list li::before { content: counter(usl, decimal-leading-zero); font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-sm); color: var(--v-accent-deep); font-variant-numeric: tabular-nums; }
+  .usl__list h3 { font-family: var(--v-font-display); font-weight: 500; font-size: clamp(1.45rem, 1rem + 1.3vw, 2.1rem); letter-spacing: var(--v-track-tight); line-height: 1.1; text-wrap: balance; transition: transform .35s ease, color .35s ease; }
+  .usl__list p { color: var(--v-ink-soft); max-width: 52ch; text-wrap: pretty; }
+  .usl__list .sum { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); color: var(--v-accent-deep); white-space: nowrap; justify-self: end; text-align: right; }
+  @media (hover: hover) {
+    .usl__list li:hover { border-radius: calc(var(--v-radius) - 6px); background: var(--v-canvas); box-shadow: inset 3px 0 0 var(--v-accent); border-top-color: transparent; }
+    .usl__list li:hover + li { border-top-color: transparent; }
+    .usl__list li:hover h3 { transform: translateX(.35rem); color: var(--v-accent-deep); }
+  }
+  .usl__foot { margin-top: var(--v-7); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--v-5) var(--v-8); }
+  .usl__foot p { color: var(--v-ink-soft); max-width: 62ch; text-wrap: pretty; }
+  @media (max-width: 1000px) {
+    .usl__head { grid-template-columns: 1fr; row-gap: var(--v-4); }
+    .usl__list { display: block; }
+    .usl__list li { grid-template-columns: 2.4rem minmax(0, 1fr) auto; row-gap: var(--v-2); padding: var(--v-4) var(--v-3); margin: 0 calc(-1 * var(--v-3)); }
+    .usl__list p { grid-column: 2 / -1; grid-row: 2; }
+    .usl__list .sum { font-size: var(--v-t-base); }
+  }
+  @media (max-width: 600px) {
+    .usl__list li { grid-template-columns: 2rem minmax(0, 1fr); }
+    .usl__list h3 { font-size: 1.3rem; }
+    .usl__list p { font-size: .95rem; grid-column: 2; grid-row: auto; }
+    .usl__list .sum { grid-column: 2; justify-self: start; min-width: 0; text-align: left; }
+    .usl__foot .v-btn { width: 100%; justify-content: center; }
+  }
+  .pain { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--v-8) var(--v-9); align-items: start; }
+  .pain__fig { aspect-ratio: 3 / 4; border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2); background: var(--v-surface); max-width: 26rem; position: sticky; top: clamp(5rem, 12vh, 7rem); }
+  .pain__fig .v-layer img { width: 100%; height: 118%; left: 0; top: -9%; object-fit: cover; }
+  .pain__fig figcaption { position: absolute; z-index: 3; left: var(--v-5); right: var(--v-5); top: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 26ch; }
+  .pain__copy .v-label { display: block; margin-bottom: var(--v-5); }
+  .pain__copy > p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 46ch; text-wrap: pretty; }
+  .rows { margin-top: var(--v-7); }
+  .rows li { padding: var(--v-5) 0; border-top: 1px solid var(--v-hair); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--v-1) var(--v-5); align-items: baseline; }
+  .rows li:last-child { border-bottom: 1px solid var(--v-hair); }
+  .rows li > span { grid-row: 1 / span 2; font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-sm); color: var(--v-accent-deep); font-variant-numeric: tabular-nums; padding-top: .2em; white-space: nowrap; }
+  .rows h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; line-height: 1.15; }
+  .rows p { color: var(--v-ink-soft); max-width: 48ch; text-wrap: pretty; }
+  .turn { margin-top: var(--v-7); padding: var(--v-5) var(--v-6); border-radius: var(--v-radius); background: var(--v-surface); box-shadow: var(--v-e1); display: grid; gap: var(--v-3); max-width: 44rem; }
+  .turn .v-label { color: var(--v-accent-deep); }
+  .turn p { font-size: var(--v-t-lg); line-height: 1.35; text-wrap: pretty; }
+  .turn small { font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  @media (max-width: 860px) {
+    .pain { grid-template-columns: 1fr; gap: var(--v-6); }
+    .pain__fig { position: relative; top: auto; max-width: 20rem; aspect-ratio: 4 / 5; }
+    .rows h3 { font-size: var(--v-t-base); }
+    .turn { padding: var(--v-5); }
+  }
+
+  /* ---- 3 · вопрос 2 «Что вы будете делать?»: пять шагов вдоль линии, лоток справа ---- */
+  .visit { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--v-8) var(--v-9); align-items: start; }
+  .visit__copy .v-label { display: block; margin-bottom: var(--v-5); }
+  .visit__copy > p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 46ch; text-wrap: pretty; }
+  .steps { margin-top: var(--v-7); position: relative; padding-left: 2.6rem; }
+  .steps::before { content: ""; position: absolute; left: .55rem; top: .6rem; bottom: .6rem; width: 1px; background: var(--v-hair-strong); }
+  .steps li { position: relative; padding: 0 0 var(--v-6); display: grid; gap: var(--v-1); }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before { content: ""; position: absolute; left: -2.6rem; top: .5rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--v-canvas); box-shadow: inset 0 0 0 1px var(--v-hair-strong); }
+  .steps li::after { content: ""; position: absolute; left: calc(-2.6rem + .35rem); top: calc(.5rem + .35rem); width: .4rem; height: .4rem; border-radius: 50%; background: var(--v-accent); }
+  .steps h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; line-height: 1.15; display: flex; gap: .6em; align-items: baseline; }
+  .steps h3 small { font-family: var(--v-font-text); font-weight: 600; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-accent-deep); }
+  .steps p { color: var(--v-ink-soft); max-width: 46ch; text-wrap: pretty; }
+  .visit__fig { position: sticky; top: clamp(5rem, 12vh, 7rem); aspect-ratio: 4 / 3; border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2); background: var(--v-surface); }
+  .visit__fig img { width: 100%; height: 100%; object-fit: cover; }
+  .visit__fig figcaption { position: absolute; left: var(--v-5); right: 40%; top: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-4) var(--v-5); margin-top: var(--v-7); }
+  .cta span { color: var(--v-ink-soft); font-size: var(--v-t-sm); max-width: 36ch; text-wrap: pretty; }
+  @media (max-width: 860px) {
+    .visit { grid-template-columns: 1fr; gap: var(--v-6); }
+    .visit__fig { position: relative; top: auto; aspect-ratio: 16 / 11; }
+    .visit__fig figcaption { right: var(--v-5); }
+    .steps h3 { font-size: var(--v-t-base); }
+  }
+
+  /* ---- 4 · вопрос 3 «Сколько это стоит?»: фирменный ход – зубная формула ------------- */
+  .price { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--v-8); align-items: center; padding: 5rem var(--v-gutter) var(--v-6); }
+  .price__copy { position: relative; align-self: center; }
+  .price__head .v-label { display: block; margin-bottom: var(--v-5); }
+  .price__head p { margin-top: var(--v-4); color: var(--v-ink-soft); max-width: 40ch; text-wrap: pretty; }
+  .price__stack { position: relative; margin-top: var(--v-7); min-height: 13rem; }
+  .price__item { position: absolute; left: 0; right: 0; top: 0; display: grid; gap: var(--v-2); max-width: 40rem; }
+  .price__item h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); letter-spacing: -0.015em; line-height: 1.08; display: flex; flex-wrap: wrap; align-items: baseline; gap: .2em .7em; }
+  .price__item h3 .sum { font-size: var(--v-t-lg); color: var(--v-accent-deep); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .price__item p { color: var(--v-ink-soft); max-width: 42ch; text-wrap: pretty; }
+  .price__item .where { display: inline-flex; align-items: center; gap: .5em; margin-top: var(--v-2); font-size: var(--v-t-sm); color: var(--v-ink); }
+  .price__item .where i { width: .6em; height: .6em; border-radius: 50%; background: var(--v-accent); flex: none; }
+  /* формула */
+  .chart { position: relative; justify-self: center; width: min(100%, 34rem); }
+  .chart__svg { width: 100%; height: auto; display: block; }
+  .chart__cap { margin-top: var(--v-3); display: flex; justify-content: space-between; gap: var(--v-4); font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); }
+  .t__base { fill: var(--v-surface); stroke: var(--v-hair-strong); stroke-width: 1.2; transition: opacity .5s var(--v-ease-out), stroke-dasharray .5s; }
+  .t__hi { fill: var(--v-accent); opacity: 0; transition: opacity .55s var(--v-ease-out); transition-delay: calc(var(--i, 0) * 28ms); }
+  /* состояния: s0 осмотр (контур), s1 гигиена (вся формула мягко), s2 кариес (3.6), s3 удаление (2.6), s4 коронка (4.6) */
+  .chart.is-s1 .t__hi { opacity: .34; }
+  .chart.is-s2 .t[data-n="36"] .t__hi { opacity: .95; }
+  .chart.is-s3 .t[data-n="26"] .t__base { opacity: .28; stroke-dasharray: 4 4; }
+  .chart.is-s4 .t[data-n="46"] .t__hi { opacity: 1; }
+  .chart.is-s4 .t[data-n="46"] .t__base { stroke: var(--v-accent-deep); }
+  /* кольцо-указатель вокруг активного зуба */
+  .chart .ring { position: absolute; width: 11%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 2px var(--v-accent); opacity: 0; transition: opacity .4s var(--v-ease-out), transform .6s var(--v-ease-out); pointer-events: none; transform: translate(-50%, -50%); }
+  .chart.is-s2 .ring, .chart.is-s3 .ring, .chart.is-s4 .ring { opacity: 1; }
+  @media (max-width: 860px) {
+    .price { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: var(--v-4); align-items: start; padding: 4.6rem var(--v-gutter) var(--v-5); }
+    .chart { width: min(100%, 22rem); max-height: 38svh; order: -1; justify-self: start; }
+    .chart__svg { max-height: 33svh; width: auto; margin-inline: auto; }
+    .chart__cap { margin-top: var(--v-2); }
+    .price__head .v-label { margin-bottom: var(--v-2); }
+    .price__head p { display: none; }
+    .price__stack { margin-top: var(--v-4); min-height: 12rem; }
+    .price__item h3 { font-size: var(--v-t-lg); }
+    .price__item p { font-size: var(--v-t-sm); max-width: none; }
+  }
+  @media (max-width: 860px) and (max-height: 720px) { .chart__svg { max-height: 28svh; } .price__item p { display: none; } }
+
+  /* ---- 5 · вопрос 4 «Кто будет лечить?»: карточки врачей, фото со спины, стерильность --- */
+  .who__head { max-width: 44rem; }
+  .who__head .v-label { display: block; margin-bottom: var(--v-5); }
+  .who__head p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 46ch; text-wrap: pretty; }
+  .who { margin-top: var(--v-7); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--v-8) var(--v-9); align-items: start; }
+  .who__fig { position: relative; aspect-ratio: 3 / 4; border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2); background: var(--v-surface); max-width: 24rem; }
+  .who__fig img { width: 100%; height: 100%; object-fit: cover; }
+  /* два портрета в одной рамке: фото меняется по клику на карточку врача (правка Евгения 19.09.2026) */
+  .v-page .who__ph { position: absolute; inset: 0; transition: opacity .6s var(--v-ease-out), transform .9s var(--v-ease-out); }
+  .v-page .who__ph--2 { opacity: 0; transform: scale(1.04); }
+  .who[data-doc="2"] .who__ph--1 { opacity: 0; transform: scale(1.04); }
+  .who[data-doc="2"] .who__ph--2 { opacity: 1; transform: none; }
+  .who__fig figcaption { position: absolute; left: var(--v-5); right: var(--v-5); top: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 24ch; }
+  .docs { display: grid; gap: var(--v-5); }
+  /* tilt пишет transform сам: появление карточек только через opacity, без transition на transform */
+  .docs > .doc { transform: none; transition: opacity .62s var(--v-ease-out); }
+  .doc { display: grid; gap: var(--v-2); padding: var(--v-6); border-radius: var(--v-radius); background: var(--v-surface); box-shadow: var(--v-e1); }
+  .doc[role="button"] { position: relative; cursor: pointer; transition: box-shadow .35s var(--v-ease-out), opacity .35s var(--v-ease-out); }
+  .doc[role="button"]:not(.is-on) { opacity: .72; }
+  .doc[role="button"].is-on { box-shadow: inset 3px 0 0 var(--v-accent), var(--v-e1); }
+  .doc[role="button"]:focus-visible { outline: 2px solid var(--v-accent); outline-offset: 3px; }
+  @media (hover: hover) { .doc[role="button"]:not(.is-on):hover { opacity: 1; } }
+  .docs > .docs__hint { font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); }
+  .doc--lead { padding: var(--v-7) var(--v-7) var(--v-6); }
+  .doc b { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); letter-spacing: -0.015em; line-height: 1.1; }
+  .doc--lead b { font-size: var(--v-t-2xl); }
+  .doc .spec { color: var(--v-ink); }
+  .doc .edu { color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .doc .says { margin-top: var(--v-3); padding-top: var(--v-3); border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 40ch; text-wrap: pretty; }
+  .clean { margin-top: var(--v-7); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--v-8) var(--v-9); align-items: center; }
+  .clean__fig { position: relative; aspect-ratio: 16 / 10; border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2); background: var(--v-surface); }
+  .clean__fig img { width: 100%; height: 100%; object-fit: cover; }
+  .clean__fig figcaption { position: absolute; left: var(--v-5); top: var(--v-5); right: 50%; font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .facts li { padding: var(--v-4) 0; border-top: 1px solid var(--v-hair); display: grid; gap: var(--v-1); }
+  .facts li:last-child { border-bottom: 1px solid var(--v-hair); }
+  .facts b { font-weight: 600; }
+  .facts span { color: var(--v-ink-soft); font-size: var(--v-t-sm); max-width: 44ch; }
+  .clean__copy h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); letter-spacing: -0.015em; line-height: 1.1; margin-bottom: var(--v-5); }
+  @media (max-width: 860px) {
+    .who { grid-template-columns: 1fr; gap: var(--v-6); margin-top: var(--v-7); }
+    .who__fig { max-width: 20rem; aspect-ratio: 4 / 5; }
+    .doc { padding: var(--v-5); }
+    .doc--lead { padding: var(--v-6) var(--v-5); }
+    .clean { grid-template-columns: 1fr; gap: var(--v-6); margin-top: var(--v-7); }
+    .clean__fig { aspect-ratio: 16 / 11; }
+    .clean__fig figcaption { right: var(--v-5); }
+  }
+
+  /* ---- 6 · отзывы с Яндекс.Карт (только настоящие, слоты) ------------------------- */
+  @property --r { syntax: "<number>"; inherits: false; initial-value: 0; }
+  .reviews__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--v-6) var(--v-8); align-items: end; margin-bottom: var(--v-7); }
+  .reviews__head .v-label { display: block; margin-bottom: var(--v-5); }
+  .reviews__rating { display: grid; grid-template-columns: auto auto; gap: var(--v-1) var(--v-4); align-items: center; font-size: var(--v-t-sm); }
+  .reviews__num { grid-row: 1 / span 2; font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-2xl); line-height: 1; color: var(--v-ink); }
+  .reviews__rating a { color: var(--v-ink); display: inline-block; padding-block: .2em; }
+  .reviews__stars { --size: 1.1rem; display: inline-block; width: calc(var(--size) * 5); height: var(--size);
+    background: linear-gradient(90deg, var(--v-accent) calc(var(--r, 0) / 5 * 100%), var(--v-hair-strong) 0);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x; }
+  .reviews__stars--sm { --size: .8rem; vertical-align: middle; }
+  .reviews__list { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--v-6); align-items: start; }
+  .reviews__item { padding-top: var(--v-5); border-top: 1px solid var(--v-hair); }
+  .reviews__item--big .reviews__text { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); line-height: 1.35; letter-spacing: -0.01em; }
+  .reviews__text { text-wrap: pretty; }
+  .reviews__meta { margin-top: var(--v-4); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .reviews__meta b { color: var(--v-ink); font-weight: 600; }
+  .reviews__fact { margin-top: var(--v-7); padding-top: var(--v-5); border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  @media (max-width: 860px) { .reviews__list { grid-template-columns: 1fr; } .reviews__head { grid-template-columns: 1fr; align-items: start; margin-bottom: var(--v-6); } }
+
+  /* ---- 7 · вопрос 5 «Когда можно прийти?»: кабинет вечером за текстом, колонка с нотками, футер внутри сцены --- */
+  .close__back img { position: absolute; max-width: none; width: 112%; height: 112%; left: -6%; top: -6%; object-fit: cover; object-position: 64% 50%; }
+  /* колонка света слева под текст: фото остаётся видно справа (кресло, окно, колонка) */
+  .close__col { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to right, rgb(246 248 247 / .9) 0%, rgb(246 248 247 / .78) 40%, rgb(246 248 247 / .3) 62%, transparent 78%); }
+  .close { position: relative; z-index: 3; height: 100%; display: grid; grid-template-rows: 1fr auto; padding: 0 var(--v-gutter);
+    background: radial-gradient(60rem 40rem at calc(var(--v-mx, .7) * 100%) calc(var(--v-my, .4) * 100%), rgb(31 127 116 / .12), transparent 60%); }
+  .close__inner { align-self: center; max-width: 46rem; padding-top: var(--v-9); }
+  .close__inner .v-label { display: block; margin-bottom: var(--v-5); }
+  .close__inner .v-display { font-size: var(--v-t-3xl); line-height: 1; max-width: 14ch; }
+  .close__inner p { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 40ch; text-wrap: pretty; }
+  .close__btns { margin-top: var(--v-6); display: flex; flex-wrap: wrap; gap: var(--v-3); }
+  .close__meta { margin-top: var(--v-7); display: grid; grid-template-columns: repeat(2, minmax(0, auto)); gap: var(--v-2) var(--v-7); justify-content: start; color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .close__tel { grid-column: 1 / -1; font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); text-decoration: none; color: var(--v-ink); display: inline-block; padding-block: .3em; margin-bottom: var(--v-1); letter-spacing: -0.01em; justify-self: start; }
+  .close__meta b { color: var(--v-ink); font-weight: 600; }
+  .close__meta a:not(.close__tel) { color: var(--v-ink); display: inline-block; padding-block: .25em; }
+  .foot { display: grid; grid-template-columns: auto 1fr auto; gap: var(--v-4) var(--v-6); align-items: baseline; margin: 0 calc(-1 * var(--v-gutter)); padding: var(--v-6) var(--v-gutter); border-top: 1px solid var(--v-hair);
+    background: rgb(246 248 247 / .84); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .foot__warn { grid-column: 1 / -1; color: var(--v-ink); font-weight: 600; letter-spacing: .01em; }
+  @media (max-width: 860px) {
+    .close__back img { object-position: 74% 50%; }
+    .close__col { background: linear-gradient(to bottom, rgb(246 248 247 / .92) 0%, rgb(246 248 247 / .84) 55%, rgb(246 248 247 / .5) 100%); }
+    .close__inner { padding-top: var(--v-8); }
+    .close__inner .v-display { font-size: var(--v-t-2xl); max-width: none; }
+    .close__meta { grid-template-columns: 1fr; gap: var(--v-2); margin-top: var(--v-6); }
+    .close__tel { font-size: var(--v-t-lg); }
+    .foot { grid-template-columns: 1fr; gap: var(--v-2); font-size: var(--v-t-sm); padding: var(--v-5) var(--v-gutter) calc(var(--v-5) + env(safe-area-inset-bottom)); }
+    .foot__more { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="v-page">
+  <span data-v-progress></span>
+
+  <header class="bar">
+    <a class="bar__mark" href="#top"><i aria-hidden="true"></i>Легче</a>
+    <nav class="qnav" aria-label="Разделы">
+      <a href="#o-kompanii">О компании</a>
+      <a href="#modeli">Модели</a>
+      <a href="#kak">Как подбираем</a>
+      <a href="#zayavka"><b>1</b>Заявка</a>
+    </nav>
+    <div class="bar__right">
+      <a class="bar__tel" href="tel:{{телефон}}">{{телефон}}</a>
+      <a class="v-btn" href="#zayavka">Оставить заявку</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1 · УЗНАВАНИЕ: коляска в светлой комнате, оффер слева, кнопка над сгибом -->
+    <section id="top" data-v-act="pin" data-v-span="2.2" data-v-drift="#f6f8f7" aria-label="Легче: подбор активных колясок">
+      <div data-v-stage>
+        <div class="v-layer hero__back" data-v-parallax="-0.45">
+          <picture>
+            <source media="(max-width: 860px)" srcset="assets/hero-m.webp">
+            <img id="hero-img" src="assets/hero.webp" alt="Активная коляска с облегчённой рамой у окна в светлой комнате" width="1920" height="1080" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="hero__col" aria-hidden="true"></div>
+
+        <div class="v-copy v-copy--lead hero__copy" data-v-cue="0 0.62 0 0.1">
+          <span class="v-label hero__label">Экосистема мобильности «Легче»</span>
+          <h1 class="v-display v-display--xl" data-v-kinetic="lines">Подберём активную коляску под бюджет, диагноз и среду</h1>
+          <p class="v-lede">Не нужно перебирать сотни магазинов и отбиваться от менеджеров. Все бренды в одном месте. Не хватает суммы сертификата – поможем с ИПРА и фондами.</p>
+          <ul class="hero__pluses" aria-label="Почему Легче">
+            <li>Подбор под ИПРА и вашу жизнь</li>
+            <li>Помощь с сертификатом СФР и фондами</li>
+            <li>Подбор проверяет эрготерапевт</li>
+            <li>Доставка по всей РФ</li>
+          </ul>
+          <div class="hero__cta">
+            <a class="v-btn" href="#zayavka">Оставить заявку</a>
+            <a class="hero__tel" href="tel:{{телефон}}">или позвоните <b>{{телефон}}</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · О КОМПАНИИ: путь к мобильности, три шага сопровождения -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#ffffff" id="o-kompanii" aria-label="О компании">
+      <div class="v-wrap pain">
+        <figure class="pain__fig">
+          <div class="v-layer" data-v-parallax="-0.35">
+            <img src="assets/showroom.webp" alt="Три активные коляски в светлом зале у окна" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <div class="pain__copy" data-v-in data-v-stagger="70">
+          <span class="v-label">О компании</span>
+          <h2 class="v-display v-display--lg">Берём на себя весь путь к мобильности</h2>
+          <p>Замеры, анализ состояния, корректировка ИПРА, привлечение фондов, если не хватает средств, и сопровождение после покупки. Мы не продаём ТСР – мы делаем мобильность доступной.</p>
+          <ul class="rows">
+            <li><span>01</span><h3>Замеры и анализ</h3><p>Смотрим ИПРА, антропометрию и то, как человек живёт: дом, машина, двери, работа.</p></li>
+            <li><span>02</span><h3>ИПРА и фонды</h3><p>Если в ИПРА указана обычная коляска, объясняем, как обосновать активную. Помогаем найти средства фондов.</p></li>
+            <li><span>03</span><h3>Сопровождение</h3><p>Помогаем с оформлением, доставкой и вопросами после покупки.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · ПРОБЛЕМЫ: почему обычный магазин не подходит -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#eef4f2" aria-label="Проблемы при подборе">
+      <div class="v-wrap">
+        <div class="who__head" data-v-in data-v-stagger="70">
+          <span class="v-label">Проблемы</span>
+          <h2 class="v-display v-display--lg">Почему в обычном магазине коляска может не подойти</h2>
+        </div>
+        <ul class="rows" data-v-in data-v-stagger="70">
+          <li><span>А</span><h3>Расхождение ИПРА и жизни</h3><p>В ИПРА записано то, что врач увидел на осмотре, а не ваш дом, машина и маршруты каждый день.</p></li>
+          <li><span>Б</span><h3>Базовая комплектация</h3><p>Стандартная модель может не учесть диагноз: например, жёсткую спинку при травме шеи или боковые поддержки.</p></li>
+          <li><span>В</span><h3>Ловушки среды</h3><p>Элементы вроде антиопрокидывателей могут мешать пандусам и гусеничным подъёмникам, а неправильные подлокотники делают пересадку небезопасной.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4 · КАК ПОДБИРАЕМ: четыре шага, фото колеса справа -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f6f8f7" id="kak" aria-label="Как проходит подбор">
+      <div class="v-wrap visit">
+        <div class="visit__copy" data-v-in data-v-stagger="70">
+          <span class="v-label">Как подбираем</span>
+          <h2 class="v-display v-display--lg">Подбор, который учитывает ИПРА, бюджет и среду</h2>
+          <ol class="steps">
+            <li><h3><small>Шаг 1</small>Анализ ИПРА и замеры</h3><p>Разбираем медицинские документы и антропометрию, ищем решение и составляем план вместе.</p></li>
+            <li><h3><small>Шаг 2</small>Оценка среды</h3><p>Учитываем багажник вашей машины, ширину дверных проёмов, пандусы и уровень активности: работа, учёба, спорт.</p></li>
+            <li><h3><small>Шаг 3</small>Конфигурация</h3><p>Подбираем раму, материал (алюминий, титан, карбон), колёса и подушку. Без лишних опций.</p></li>
+            <li><h3><small>Шаг 4</small>Обоснование простыми словами</h3><p>Объясняем, как каждая деталь влияет на безопасность и скорость: развал колёс, антиопрокидыватели, посадка.</p></li>
+          </ol>
+        </div>
+        <figure class="visit__fig" data-v-reveal="left" data-v-reveal-at="0.1 0.42">
+          <img src="assets/detail.webp" alt="Колесо активной коляски крупным планом: тонкие спицы, узкая шина" width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption>Колёса, посадка и рама подбираются под вашу жизнь</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5 · МОДЕЛИ: список с ценами «от» -->
+    <section class="v-section v-section--tight" data-v-act="flow" data-v-drift="#ffffff" id="modeli" aria-label="Модели с ценами">
+      <div class="v-wrap usl">
+        <div class="usl__head" data-v-in data-v-stagger="70">
+          <span class="v-label">Модели</span>
+          <h2 class="v-display v-display--lg">Активные коляски с ценами «от»</h2>
+          <p>Только модели для активной жизни. Цены от производителей и партнёров, актуальность уточняйте при заявке.</p>
+        </div>
+        <ol class="usl__list" data-v-in data-v-stagger="55">
+          <li><h3>Karma Ergo 115</h3><p>Доступная облегчённая коляска из авиационного алюминия для каждого дня.</p><span class="sum v-nums">от 65 000&nbsp;₽</span></li>
+          <li><h3>Ortonica S 4000</h3><p>Популярная активная модель с широкими возможностями регулировки.</p><span class="sum v-nums">от 89 000&nbsp;₽</span></li>
+          <li><h3>Otto Bock Старт</h3><p>Надёжная немецкая классика, 16 вариантов комплектации под пользователя.</p><span class="sum v-nums">от 95 000&nbsp;₽</span></li>
+          <li><h3>Excel G6 High Active</h3><p>Складная рама, регулировка жёсткости спинки, отличная манёвренность.</p><span class="sum v-nums">от 115 000&nbsp;₽</span></li>
+          <li><h3>Система жизни Вектор</h3><p>Российская активная коляска, адаптированная под наши реалии.</p><span class="sum v-nums">от 125 000&nbsp;₽</span></li>
+          <li><h3>Vermeiren Sagitta</h3><p>Высокая манёвренность и премиальные материалы, подходит для улицы и дома.</p><span class="sum v-nums">от 206 900&nbsp;₽</span></li>
+          <li><h3>Progeo Joker</h3><p>Полуактивная и активная коляска с хорошей стабильностью и комфортом.</p><span class="sum v-nums">от 293 100&nbsp;₽</span></li>
+          <li><h3>Kuschall K-series 2.0</h3><p>Швейцарский премиум-класс, минимальный вес, эффективный толчок.</p><span class="sum v-nums">от 389 900&nbsp;₽</span></li>
+          <li><h3>Quickie Krypton R</h3><p>Спортивный уклон, рамы из карбона или алюминия для максимальной активности.</p><span class="sum v-nums">от 450 000&nbsp;₽</span></li>
+        </ol>
+        <div class="usl__foot" data-v-in data-v-in-self>
+          <p>Не знаете, какая модель нужна? Оставьте заявку: подберём 2–3 варианта под ваш бюджет и ИПРА.</p>
+          <a class="v-btn v-btn--ghost" href="#zayavka">Подобрать модель</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · БРЕНДЫ -->
+    <section class="v-section v-section--tight" data-v-act="flow" data-v-drift="#eef4f2" aria-label="Бренды">
+      <div class="v-wrap" data-v-in>
+        <span class="v-label">Бренды</span>
+        <p class="v-display v-display--lg" style="margin-top: var(--v-4); font-size: var(--v-t-2xl);">Ortonica · Otto Bock · Meyra · Kuschall · Quickie · Vermeiren · Karma · Excel · Progeo · Система жизни</p>
+      </div>
+    </section>
+
+    <!-- 7 · ЗАЯВКА: форма быстрого старта, три шага -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f6f8f7" id="zayavka" aria-label="Заявка на подбор">
+      <style>
+        .quiz { display: grid; gap: var(--v-4); max-width: 40rem; margin-top: var(--v-6); }
+        .quiz label { display: grid; gap: .4em; font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+        .quiz select, .quiz input[type="tel"] { font: inherit; font-size: 1rem; padding: .8em 1em; border-radius: 12px; border: 1px solid var(--v-hair-strong); background: var(--v-surface); color: var(--v-ink); min-height: 44px; }
+        .quiz .check { display: flex; gap: .6em; align-items: flex-start; color: var(--v-ink); }
+        .quiz .check input { margin-top: .3em; width: 1.1em; height: 1.1em; }
+        .quiz .form-ok { color: var(--v-accent-deep); font-weight: 600; }
+        .quiz .v-btn { background: var(--v-accent); color: var(--v-accent-ink); border: 0; cursor: pointer; font: inherit; font-size: var(--v-t-sm); }
+      </style>
+      <div class="v-wrap visit">
+        <div class="visit__copy" data-v-in data-v-stagger="70">
+          <span class="v-label">Заявка</span>
+          <h2 class="v-display v-display--lg">Ответьте на три вопроса – предложим 2–3 варианта</h2>
+          <p>Минимум данных: не нужно рассказывать диагноз подробно. Специалист перезвонит и уточнит детали.</p>
+          <form class="quiz" onsubmit="event.preventDefault(); this.querySelector('.form-ok').hidden = false; this.querySelector('button').disabled = true;">
+            <label>Какая коляска нужна
+              <select required>
+                <option value="">Выберите вариант</option>
+                <option>Активная складная</option>
+                <option>Облегчённая для каждого дня</option>
+                <option>Для улицы и дома</option>
+                <option>Пока не знаю</option>
+              </select>
+            </label>
+            <label>Бюджет
+              <select required>
+                <option value="">Выберите бюджет</option>
+                <option>До 100 000 ₽</option>
+                <option>До 200 000 ₽</option>
+                <option>До 300 000 ₽</option>
+                <option>Больше 300 000 ₽</option>
+              </select>
+            </label>
+            <label class="check"><input type="checkbox"> Есть ИПРА или сертификат СФР</label>
+            <label>Телефон
+              <input type="tel" required placeholder="+7">
+            </label>
+            <label class="check"><input type="checkbox" required> Согласен на обработку персональных данных</label>
+            <div class="cta">
+              <button class="v-btn" type="submit">Получить подбор</button>
+              <span class="form-ok" hidden>Спасибо, заявка принята. Перезвоним и предложим варианты.</span>
+            </div>
+          </form>
+        </div>
+        <div class="visit__copy" data-v-in data-v-stagger="70">
+          <span class="v-label">Напишите сейчас</span>
+          <h2 class="v-display v-display--lg">Ответим сразу</h2>
+          <p>Пишите в Telegram или Max, если удобнее переписка. Или звоните – ответим по существу.</p>
+          <ul class="facts" style="margin-top: var(--v-6);">
+            <li><b>Телефон</b><span><a href="tel:{{телефон}}">{{телефон}}</a></span></li>
+            <li><b>Telegram</b><span><a href="{{ссылка-telegram}}" target="_blank" rel="noopener">{{ссылка-telegram}}</a></span></li>
+            <li><b>Max</b><span><a href="{{ссылка-max}}" target="_blank" rel="noopener">{{ссылка-max}}</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>Легче · подбор активных колясок</span>
+    <span>Принимаем электронные сертификаты СФР. Доставка по всей РФ.</span>
+    <span>Официальная гарантия от производителей</span>
+    <span class="foot__warn">Перед покупкой проконсультируйтесь со специалистом по ИПРА.</span>
+  </footer>
+</div>
+
+<script src="vibe.js"></script>
+<script>
+  Vibe.mount(document.querySelector('.v-page'));
+</script>
+</body>
+</html>
